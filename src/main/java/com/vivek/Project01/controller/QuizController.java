@@ -16,8 +16,7 @@ public class QuizController {
     private QuizService service;
 
     @GetMapping
-    public List<Quiz> getAllQuestionAnswer() throws InterruptedException{
-        Thread.sleep(3000);
+    public List<Quiz> getAllQuestionAnswer(){
         return service.getAllQuestionAnswers();
     }
 

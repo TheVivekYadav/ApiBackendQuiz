@@ -1,32 +1,20 @@
 package com.vivek.Project01.controller;
 
-import com.vivek.Project01.model.RegisterUser;
-import com.vivek.Project01.service.RegisterUserService;
+import com.vivek.Project01.model.Users;
+import com.vivek.Project01.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
-@RequestMapping("/api/students")
+@RequestMapping("/api/user")
 public class UserController {
 
     @Autowired
-    private RegisterUserService service;
-
-    @GetMapping
-    public List<RegisterUser> getAllStudent(){
-        return service.getAllStudent();
-    }
+    private UserService service;
 
     @PostMapping
-    public RegisterUser saveStudent(@RequestBody RegisterUser user){
-        return service.saveStudent(user);
-    }
-
-    @DeleteMapping("/{rollNo}")
-    public void deleteStudent(@PathVariable int rollNo){
-        service.deleteStudent(rollNo);
+    public Users register(@RequestBody Users user){
+        return service.register(user);
     }
 
 }
